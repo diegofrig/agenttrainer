@@ -55,7 +55,7 @@ Lo stato si costruisce così:
 
 - **Baseline all'attivazione.** Al momento in cui l'agente prende in carico un utente, fotografa il punto di partenza: cosa già usa e cosa no. Senza un punto di partenza non si distingue il progresso dal rumore.  
 - **Poche dimensioni misurabili.** Lo stato poggia su pochi segnali chiari, ad esempio: attivazione di base (email e calendario collegati, primo uso del workspace), creazione di record e attività, avanzamento sugli esercizi, uso dei processi chiave del progetto.  
-- **Stati semplici.** Ogni utente si trova in uno stato leggibile a colpo d'occhio: non iniziato, in corso, adottato, a rischio (chi aveva cominciato e ha rallentato).  
+- **Stati semplici.** Ogni utente si trova in uno stato leggibile a colpo d'occhio: non iniziato, in corso, onboarding completato, adottato, a rischio (chi aveva cominciato e ha rallentato).  
 - **Target di arrivo.** Si definisce cosa significa "adottato" per quel ruolo e quel progetto, così l'obiettivo è chiaro e misurabile.
 
 L'agente aggiorna lo stato nel tempo a partire dai dati di HubSpot e lo usa per modulare nudge, esercizi e riepiloghi.
@@ -137,7 +137,7 @@ Le dimensioni esatte e le soglie dipendono dai dati disponibili (capitolo 8\) e,
 
 **Cosa serve perché funzioni.** Il collegamento all'HubSpot del cliente.
 
-Monitoraggio dell'uso standard in MVP. Il confronto puntuale con obiettivi individuali è upsell.
+Monitoraggio dell'uso e confronto con gli obiettivi individuali in MVP. I controlli sui dati (l'osservatore) segnalano con un solo task per controllo, con il link a una vista HubSpot dei record da sistemare.
 
 ### 7.3 Nudge e ingaggio proattivo
 
@@ -229,6 +229,10 @@ L'MVP è l'agente standard, pronto da collegare all'HubSpot del cliente, proatti
 - Memoria per utente.  
 - Consapevolezza di base del ruolo e contesto di progetto leggero.  
 - Selezione di chi riceve la formazione dall'agente.
+- Obiettivi individuali per utente (ad esempio target di deal creati o chiusi, target di attività), usati per lo stato di adoption, i riepiloghi e la valutazione.
+- Osservatore: controlli sui dati, con un solo task per controllo e il link a una vista HubSpot dei record da sistemare.
+- Valutatore: confronto dell'utente con i suoi obiettivi (ad esempio un contratto firmato rispetto al target del trimestre).
+- Gamification di base: livelli, badge e serie, con il riconoscimento sotto forma di task.
 
 ### 9.2 Cosa è Personalizzazione a pagamento
 
@@ -238,7 +242,6 @@ Personalizzazione sul processo del cliente:
 
 - Interazione bidirezionale con l'utente e chat how-to ancorata al processo specifico, alimentata dalla progettazione funzionale e dalle FAQ di progetto. Richiede una superficie di interazione (Breeze, chatbot in HubSpot, o un canale esterno).  
 - Esercizi custom oltre i default, derivati dalla progettazione funzionale. Disegnati per non premiare l'attività-vetrina: i segnali di qualità (completezza dei dati, igiene della pipeline) fanno da contrappeso al solo volume, così "crea 5 deal" non si soddisfa con 5 deal vuoti.  
-- Obiettivi individuali per utente (ad esempio target di deal creati o chiusi, target di attività).  
 - Personalizzazione profonda per ruolo ed estensione ad altri team (marketing, service).  
 - Verifica degli esercizi basata sui dati reali invece che sulla sola spunta.  
 - KPI e metriche di reporting custom.
@@ -252,8 +255,9 @@ Add-on opzionali:
 
 - Canali aggiuntivi: WhatsApp, Slack, Teams (capitolo 11).  
 - Messaggi proattivi innescati su canali esterni.  
-- Gamification (streak, badge), benchmark anonimo verso pari ruolo, vista manager conversazionale (il responsabile chiede dell'andamento del team), messaggi audio, risposte rapide a pulsanti.  
+- Gamification avanzata (classifiche), benchmark anonimo verso pari ruolo, vista manager conversazionale (il responsabile chiede dell'andamento del team), messaggi audio, risposte rapide a pulsanti.  
 - Esercizi e controlli basati sui login (richiedono HubSpot Enterprise).
+- Regole di igiene dei task: tetto di messaggi e di task aperti per utente, silenzio quando l'utente è già attivo (capitolo 13).
 
 ### 9.3 Come si configura la personalizzazione su Polyant
 

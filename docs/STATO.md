@@ -36,31 +36,31 @@ Dato dalla call del 2/10:
 - **Diego:** stimare i costi di WhatsApp, Slack e Teams come canali, e capire come usare la memoria per utente, che oggi nei task non produce nulla di utile.
 - **Budget:** serve capire quanto lavoro resta oltre la prossima settimana, per poter pianificare a gennaio. Stima non ancora fatta.
 
-## Da modificare nei documenti
+## Decisioni di Diego del 3 ottobre
 
-Incoerenze tra i documenti e la call. **I file in `docs/funzionale/` non sono stati toccati**, a parte il link all'immagine nella prima riga del documento funzionale (prima puntava a un artifact su claude.ai, ora al file del repo). Da decidere cosa correggere e dove.
+Prese sui punti emersi dal confronto tra i due documenti e la call. Applicate a `docs/funzionale/` nella PR "Allineamento documenti".
 
-### Tra i due documenti
+| Punto | Decisione | Dove applicata |
+|---|---|---|
+| Verifica degli esercizi | Nell'MVP l'esercizio è fatto quando l'utente spunta il task. La verifica sui dati è upsell, anche nella PoC PNO. | PNO sezione 5 |
+| Controlli dell'osservatore | Task aggregato con link a una vista HubSpot (vedi ADR-001). | PNO sezione 4 |
+| Badge, livelli, serie | In MVP. Classifiche e benchmark anonimo restano add-on. | Funzionale 9.1 e 9.2, PNO sezione 6 |
+| Obiettivi individuali | In MVP. | Funzionale 7.2, 9.1, 9.2; schema |
+| Stati di adoption | Cinque: non iniziato, in corso, onboarding completato, adottato, a rischio. | Funzionale capitolo 4; schema |
+| Tetto di task e messaggi | Upsell. Nell'MVP non c'è un limite. | Funzionale 9.2, PNO sezione 4 |
+| Training transcript | Fonte potenziale nello schema. | Schema |
+| Osservatore e valutatore | Due servizi distinti. | [ADR-001](decisions/ADR-001-osservatore-e-valutatore.md) |
 
-1. **Verifica degli esercizi.** Il documento funzionale dice che nell'MVP la verifica è sulla spunta del task, e la verifica sui dati reali è upsell (7.1, 8, 9.1, 9.2). Il documento PNO dice che nella PoC la verifica è sui dati, e la tabella degli esercizi indica quasi sempre un dato come verifica (prima email tracciata, primo deal, ecc.). Sono due promesse diverse. Va deciso quale vale per l'MVP, e se la PoC PNO è un'eccezione dichiarata.
-2. **Stati di adoption.** Il documento funzionale ne ha quattro (non iniziato, in corso, adottato, a rischio), e lo schema SVG ne mostra tre più "a rischio". Il PNO ne ha cinque, con "Onboarding Completato". In call Diego ha proposto lo stato in più. Va aggiunto al documento funzionale e allo schema, oppure il PNO resta un caso a parte.
-3. **Gamification, benchmark e serie.** Nel documento funzionale sono add-on a pagamento (9.2). Il PNO li include in MVP (sezione 6: livelli, badge, serie). In call Diego propone di fare subito il task di riconoscimento per "First signature", lasciando classifiche e dashboard a dopo. Va deciso se il perimetro MVP include i badge.
-4. **Obiettivi individuali.** Il documento funzionale li colloca in upsell. Il PNO ha target settimanali e trimestrali già dentro la logica degli stati (target settimanali) e dei riepiloghi. Contraddizione sul perimetro.
-5. **Frequenza e task generati.** Il documento funzionale chiede un tetto di messaggi e task aperti (13). Il PNO prevede task su ogni trigger, tre reminder per task e riepilogo ogni lunedì. Nessun tetto indicato.
+UC11 resta fuori e non viene annotato nel PNO: il salto di numerazione è chiaro.
 
-### Nel documento PNO, rispetto alla call
+## Ancora da sciogliere
 
-6. **UC11** non compare nell'elenco (la numerazione salta da UC10 a UC12): coerente con la decisione di toglierlo, ma va scritto che è tolto.
-7. **UC12 e UC14** sono nella tabella "Lavoro quotidiano" come use case dell'osservatore. In call sono stati spostati nella valutazione e reportistica.
-8. **UC06** non è chiaro a Gennaro (termini NL/BE, KvK, Vestigingsnummer, campi AFAS). Il testo del task va chiarito, e va precisato cosa si intende per "Organization NL" (country dell'organization, owner del team Netherlands, o entrambi: Diego dice "anche owner del team Netherlands").
-9. **UC17 / team leader.** Scritto nel documento come task al Team Leader. In call: "la roba del team leader forse non l'ho messa"; Gennaro lo lega alla reportistica. Stato di implementazione non chiaro.
-10. **UC19.** Il testo contiene "vedi soluzione più sempolice": nota di lavoro lasciata nel documento, da trasformare in decisione (mail o Slack).
-
-### Nel documento funzionale
-
-11. **Training Transcript** compare nelle fonti (sezione 5A) ma non nello schema SVG. In call Diego dice "qua aggiungerei il training transcript". Da allineare lo schema.
-12. **Osservatore e valutatore** sono due concetti emersi in call e assenti da entrambi i documenti. Potrebbe valere un'ADR in `docs/decisions/`.
-13. **Check aggregato con link alla vista.** Vale per tutti i controlli dell'osservatore ma non è scritto nel PNO, che parla di "task sull'Organization / sul contact / sul deal", cioè un task per record. Contraddice la decisione "osservatore aggregato" della tabella sopra.
+1. **UC06, "Organization NL".** Nel PNO ho scritto "country Netherlands e owner del team Netherlands" a partire dalla frase di Diego in call ("country sull'organization ma anche owner del team Netherlands"). Da confermare se le due condizioni valgono insieme o in alternativa.
+2. **UC17, task al Team Leader.** Scritto nel PNO, ma in call "la roba del team leader forse non l'ho messa". Stato di implementazione da chiedere a Gennaro.
+3. **UC19, canale.** Il PNO ora dice "Slack o Email, si parte dalla soluzione più semplice da implementare". La scelta non è fatta.
+4. **Esempi dei task (PNO, sezione 4).** Sono scritti al singolare. Con i task aggregati vanno riscritti con il conteggio dei record. Non l'ho fatto: sono testi che Gennaro tiene su Polyant.
+5. **UC09.** La regola "se PNO ha già un task su quel deal non ne apre un secondo" è stata riformulata come "deal esclusi dalla vista". È una traduzione mia della regola nel modello aggregato.
+6. **Verifica sui dati.** La colonna "Verifica" del PNO è ora "Verifica sui dati (upsell)". Per D5, D6 e P16 il valore è "Spunta", che nell'ottica della nuova regola è la sola verifica prevista. Da pulire.
 
 ## Da verificare (non è chiaro dalla call)
 
