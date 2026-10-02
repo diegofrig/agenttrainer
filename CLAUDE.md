@@ -17,7 +17,7 @@ Leggere nell'ordine:
 ## Struttura
 
 - `docs/funzionale/`: documenti sorgente. Sono versioni di Diego: non si riscrivono, si segnalano le correzioni in `docs/STATO.md`.
-- `docs/decisions/`: ADR, una per decisione che cambia il perimetro.
+- `docs/decisions/`: ADR, una per decisione che cambia il perimetro. ADR-001: osservatore e valutatore.
 - `.eve/sources/transcripts/`: trascrizioni Fireflies, un file per call, nome `AAAA-MM-GG-titolo.md`, testo verbatim.
 - `.claude/methodology.config.md`: `github-flow`. Solo `main`, lavoro su branch `feat/...` o `fix/...` e pull request.
 

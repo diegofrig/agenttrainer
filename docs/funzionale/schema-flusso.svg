@@ -37,22 +37,23 @@
   <text x="1058" y="184" font-size="12.5" font-weight="700" letter-spacing="1.6" fill="#9AA1AA">DOVE ARRIVA</text>
 
   <!-- LEFT inputs -->
-  <rect x="60" y="198" width="330" height="174" rx="16" fill="#FFFFFF" filter="url(#soft)"/>
-  <rect x="60" y="198" width="7" height="174" rx="3.5" fill="#1E9E8F"/>
+  <rect x="60" y="198" width="330" height="188" rx="16" fill="#FFFFFF" filter="url(#soft)"/>
+  <rect x="60" y="198" width="7" height="188" rx="3.5" fill="#1E9E8F"/>
   <text x="86" y="230" font-size="16.5" font-weight="700" fill="#16243F">Fonti di conoscenza</text>
   <g font-size="13" fill="#5A6472">
     <circle cx="92" cy="255" r="3" fill="#1E9E8F"/><text x="104" y="259">Dati live da HubSpot</text>
     <circle cx="92" cy="281" r="3" fill="#1E9E8F"/><text x="104" y="285">Progettazione funzionale</text>
     <circle cx="92" cy="307" r="3" fill="#1E9E8F"/><text x="104" y="311">FAQ di progetto</text>
     <circle cx="92" cy="333" r="3" fill="#1E9E8F"/><text x="104" y="337">Knowledge base HubSpot</text>
+    <circle cx="92" cy="359" r="3" fill="#1E9E8F"/><text x="104" y="363">Transcript delle call (potenziale)</text>
   </g>
-  <rect x="60" y="392" width="330" height="146" rx="16" fill="#FFFFFF" filter="url(#soft)"/>
-  <rect x="60" y="392" width="7" height="146" rx="3.5" fill="#FF6A3D"/>
-  <text x="86" y="424" font-size="16.5" font-weight="700" fill="#16243F">Configurazione e contenuti</text>
+  <rect x="60" y="402" width="330" height="136" rx="16" fill="#FFFFFF" filter="url(#soft)"/>
+  <rect x="60" y="402" width="7" height="136" rx="3.5" fill="#FF6A3D"/>
+  <text x="86" y="432" font-size="16.5" font-weight="700" fill="#16243F">Configurazione e contenuti</text>
   <g font-size="13" fill="#5A6472">
-    <circle cx="92" cy="450" r="3" fill="#FF6A3D"/><text x="104" y="454">Comportamento e tono</text>
-    <circle cx="92" cy="477" r="3" fill="#FF6A3D"/><text x="104" y="481">Obiettivi individuali</text>
-    <circle cx="92" cy="504" r="3" fill="#FF6A3D"/><text x="104" y="508">Esercizi (default + custom)</text>
+    <circle cx="92" cy="456" r="3" fill="#FF6A3D"/><text x="104" y="460">Comportamento e tono</text>
+    <circle cx="92" cy="482" r="3" fill="#FF6A3D"/><text x="104" y="486">Obiettivi individuali</text>
+    <circle cx="92" cy="508" r="3" fill="#FF6A3D"/><text x="104" y="512">Esercizi (default + custom)</text>
   </g>
 
   <line x1="392" y1="252" x2="444" y2="252" stroke="#FF6A3D" stroke-width="3.5" marker-end="url(#aCoral)"/>
@@ -132,7 +133,7 @@
     <rect x="1290" y="496" width="92" height="26" rx="13" fill="#D6F2EC"/>
     <text x="1336" y="513" font-size="10.5" font-weight="700" fill="#0F766E" text-anchor="middle">Adottato</text>
   </g>
-  <text x="1084" y="540" font-size="9.5" fill="#B45309">Stato "a rischio" per chi rallenta dopo aver iniziato.</text>
+  <text x="1084" y="540" font-size="9.5" fill="#B45309">Anche: Onboarding completato · A rischio (chi rallenta).</text>
 
   <!-- ===== UPSELL band (prominent) ===== -->
   <rect x="40" y="568" width="1360" height="246" rx="22" fill="url(#ups)" filter="url(#softP)"/>
@@ -150,10 +151,10 @@
     <text x="88" y="766" font-size="12" fill="#5A6472">caso del cliente</text>
     <rect x="330" y="664" width="248" height="128" rx="14" fill="#FFFFFF" filter="url(#soft)"/>
     <circle cx="358" cy="694" r="14" fill="#6A45D6"/><text x="358" y="700" font-size="18" font-weight="800" fill="#FFF" text-anchor="middle">+</text>
-    <text x="382" y="700" font-size="14" font-weight="700" fill="#16243F">Esercizi e obiettivi</text>
+    <text x="382" y="700" font-size="14" font-weight="700" fill="#16243F">Esercizi custom</text>
     <text x="354" y="730" font-size="12" fill="#5A6472">Su misura, dalla</text>
-    <text x="354" y="748" font-size="12" fill="#5A6472">progettazione funzionale,</text>
-    <text x="354" y="766" font-size="12" fill="#5A6472">con target per utente</text>
+    <text x="354" y="748" font-size="12" fill="#5A6472">progettazione funzionale</text>
+    <text x="354" y="766" font-size="12" fill="#5A6472">del cliente</text>
     <rect x="596" y="664" width="248" height="128" rx="14" fill="#FFFFFF" filter="url(#soft)"/>
     <circle cx="624" cy="694" r="14" fill="#6A45D6"/><text x="624" y="700" font-size="18" font-weight="800" fill="#FFF" text-anchor="middle">+</text>
     <text x="648" y="700" font-size="14" font-weight="700" fill="#16243F">Canali esterni</text>

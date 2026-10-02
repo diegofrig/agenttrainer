@@ -49,6 +49,10 @@ Tutti lavorano sul canale HubSpot: ogni comunicazione dell'agente è un task ass
 
 Tutti i task hanno la scadenza al giorno successivo (configurabile) e due reminder: uno all'assegnazione, uno il giorno prima della scadenza.
 
+**Controlli aggregati.** I controlli sui dati (UC05-UC10, UC13) aprono un solo task per controllo, non uno per record: il task dice quanti record sono da sistemare e contiene il link a una vista HubSpot che li elenca (una vista per controllo, filtrata sull'owner). Se il task viene chiuso senza aver sistemato i record, si riapre. Gli esempi in tabella sono scritti al singolare: nel task reale compare il conteggio ("you have 2 deals without amount or close date").
+
+**Nessun tetto nell'MVP.** Non c'è un limite ai task generati per utente: le regole di igiene dei task (tetto di messaggi e di task aperti) sono personalizzazione a pagamento.
+
 ### Percorso iniziale
 
 | \# | Trigger | Cosa fa l'agente | Esempio |
@@ -62,14 +66,21 @@ Tutti i task hanno la scadenza al giorno successivo (configurabile) e due remind
 
 | \# | Trigger | Cosa fa l'agente | Esempio |
 | :---- | :---- | :---- | :---- |
-| UC05 | Organization creata senza dominio | Task sull'Organization | "Add the domain: it's what stops a colleague from creating the same company again." |
-| UC06 | Organization NL senza KvK e Vestigingsnummer, o BE senza campi AFAS | Task sull'Organization | "Add the KvK or Vestigingsnummer now: without it this Organization will not reach AFAS." |
-| UC07 | Contact creato senza Organization | Task sul contact | "Link this contact to its Organization, otherwise it won't sync to Matchpoint." |
-| UC08 | Deal nuovo senza amount o close date, o con nome fuori formato | Task sul deal | "No close date yet. Put your best estimate: it goes straight into your country's forecast." |
-| UC09 | Deal aperto senza attività né cambio di stage da 3 giorni | Task sul deal. Se PNO ha già un task su quel deal, non ne apre un secondo | "Nothing has moved here for 3 days. If you spoke to the client, log it; if not, a short call usually gets it going." |
-| UC10 | Deal in Prepare Offer senza fee | Task sul deal | "Fill in the fees: the amount is calculated from them and stays at zero until you do." |
+| UC05 | Organization creata senza dominio | Task aggregato con link alla vista delle Organization senza dominio | "Add the domain: it's what stops a colleague from creating the same company again." |
+| UC06 | Organization NL (country Netherlands e owner del team Netherlands) senza KvK e Vestigingsnummer, o Organization BE senza campi AFAS | Task aggregato con link alla vista delle Organization incomplete | "Add the KvK or Vestigingsnummer now: without it this Organization will not reach AFAS." |
+| UC07 | Contact creato senza Organization | Task aggregato con link alla vista dei contact senza Organization | "Link this contact to its Organization, otherwise it won't sync to Matchpoint." |
+| UC08 | Deal nuovo senza amount o close date, o con nome fuori formato | Task aggregato con link alla vista dei deal incompleti | "No close date yet. Put your best estimate: it goes straight into your country's forecast." |
+| UC09 | Deal aperto senza attività né cambio di stage da 3 giorni | Task aggregato con link alla vista dei deal fermi, esclusi quelli su cui PNO ha già un task | "Nothing has moved here for 3 days. If you spoke to the client, log it; if not, a short call usually gets it going." |
+| UC10 | Deal in Prepare Offer senza fee | Task aggregato con link alla vista dei deal senza fee | "Fill in the fees: the amount is calculated from them and stays at zero until you do." |
+| UC13 | Deal in Closed Lost senza motivo, o "Timing not right" senza data di follow-up | Task aggregato con link alla vista dei deal da completare | "Add the follow-up date: HubSpot will remind you when it's time to call back." |
+
+### Valutazione
+
+UC12 e UC14 non controllano un dato: confrontano l'utente con i suoi obiettivi. Sono del valutatore, non dell'osservatore, e si costruiscono insieme ai riepiloghi (vedi `docs/decisions/ADR-001-osservatore-e-valutatore.md`). Gli obiettivi si danno a Polyant da un documento o una tabella.
+
+| \# | Trigger | Cosa fa l'agente | Esempio |
+| :---- | :---- | :---- | :---- |
 | UC12 | Deal in Contract Signed | Riconoscimento, avanzamento sul trimestre, controllo dei dati di progetto | "Contract signed, well done: 2 of 3 this quarter. Project data is complete, so the handover can start." |
-| UC13 | Deal in Closed Lost senza motivo, o "Timing not right" senza data di follow-up | Task sul deal | "Add the follow-up date: HubSpot will remind you when it's time to call back." |
 | UC14 | Giovedì, utente sotto un target settimanale | Task con un passo per rientrare entro venerdì | "You're at 3 of 5 deals worked this week. Two of yours have been quiet since Monday: one update each and you're there." |
 
 ### Andamento
@@ -80,15 +91,15 @@ Tutti i task hanno la scadenza al giorno successivo (configurabile) e due remind
 | UC16 | Passaggio ad "adottato" | Riconoscimento |
 | UC17 | Passaggio ad "a rischio" | Task a Team Leader per avvisarlo del fatto che \[user\] è in difficoltà |
 | UC18 | Badge o serie raggiunti | Riconoscimento (sezione 6\) |
-| UC19 | Lunedì | Quadro per Exelab: utenti per stato e per country, utenti a rischio con l'ultimo segnale, target e obiettivi raggiunti, esercizi completati. Recapitato come Slack o Email (vedi soluzione più sempolice) agli utenti Exelab nel portale del cliente |
+| UC19 | Lunedì | Quadro per Exelab: utenti per stato e per country, utenti a rischio con l'ultimo segnale, target e obiettivi raggiunti, esercizi completati. Recapitato agli utenti Exelab nel portale del cliente, come Slack o Email: si parte dalla soluzione più semplice da implementare |
 
 In memoria per ogni utente: country, team, ruolo, baseline, stato nel tempo, esercizi fatti e scaduti, dove fatica, ultimi task e se hanno prodotto un'azione. L'agente non ripete esercizi già completati.
 
 ## 5\. Esercizi
 
-Ogni esercizio è un task con micro-guida di due o tre passi e link all'articolo della knowledge base HubSpot. Nella PoC la verifica è sui dati.
+Ogni esercizio è un task con micro-guida di due o tre passi e link all'articolo della knowledge base HubSpot. Nell'MVP l'esercizio risulta fatto quando l'utente spunta il task. La colonna a destra indica il dato su cui si potrà verificare il completamento: la verifica sui dati è personalizzazione a pagamento.
 
-| \# | Esercizio | Micro-guida (task, in inglese) | Verifica |
+| \# | Esercizio | Micro-guida (task, in inglese) | Verifica sui dati (upsell) |
 | :---- | :---- | :---- | :---- |
 | D1 | Collega l'email | Install the HubSpot add-in from the Outlook store (not from HubSpot) and keep logging on for client emails | Prima email tracciata |
 | D2 | Collega il calendario | Connect your Outlook calendar in HubSpot settings | Primo meeting sincronizzato |
@@ -137,7 +148,7 @@ Badge di risultato:
 | On a roll | 4 settimane di fila con tutti i target settimanali |
 | Quarter done | Obiettivi del trimestre raggiunti |
 
-**Serie:** settimane consecutive con tutti i target settimanali raggiunti. **Benchmark anonimo:** posizione rispetto ai pari ruolo della propria country, senza nomi.
+**Serie:** settimane consecutive con tutti i target settimanali raggiunti. **Benchmark anonimo** (fuori MVP, add-on): posizione rispetto ai pari ruolo della propria country, senza nomi.
 
 ## 7\. Riepiloghi
 
