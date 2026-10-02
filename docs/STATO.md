@@ -53,14 +53,15 @@ Prese sui punti emersi dal confronto tra i due documenti e la call. Applicate a 
 
 UC11 resta fuori e non viene annotato nel PNO: il salto di numerazione è chiaro.
 
+UC06: il controllo vale per le Organization con country Netherlands **e** owner del team Netherlands (confermato da Diego il 3/10).
+
 ## Ancora da sciogliere
 
-1. **UC06, "Organization NL".** Nel PNO ho scritto "country Netherlands e owner del team Netherlands" a partire dalla frase di Diego in call ("country sull'organization ma anche owner del team Netherlands"). Da confermare se le due condizioni valgono insieme o in alternativa.
-2. **UC17, task al Team Leader.** Scritto nel PNO, ma in call "la roba del team leader forse non l'ho messa". Stato di implementazione da chiedere a Gennaro.
-3. **UC19, canale.** Il PNO ora dice "Slack o Email, si parte dalla soluzione più semplice da implementare". La scelta non è fatta.
-4. **Esempi dei task (PNO, sezione 4).** Sono scritti al singolare. Con i task aggregati vanno riscritti con il conteggio dei record. Non l'ho fatto: sono testi che Gennaro tiene su Polyant.
-5. **UC09.** La regola "se PNO ha già un task su quel deal non ne apre un secondo" è stata riformulata come "deal esclusi dalla vista". È una traduzione mia della regola nel modello aggregato.
-6. **Verifica sui dati.** La colonna "Verifica" del PNO è ora "Verifica sui dati (upsell)". Per D5, D6 e P16 il valore è "Spunta", che nell'ottica della nuova regola è la sola verifica prevista. Da pulire.
+1. **UC17, task al Team Leader.** Scritto nel PNO, ma in call "la roba del team leader forse non l'ho messa". Stato di implementazione da chiedere a Gennaro.
+2. **UC19, canale.** Il PNO ora dice "Slack o Email, si parte dalla soluzione più semplice da implementare". La scelta non è fatta.
+3. **Esempi dei task (PNO, sezione 4).** Sono scritti al singolare. Con i task aggregati vanno riscritti con il conteggio dei record. Non l'ho fatto: sono testi che Gennaro tiene su Polyant.
+4. **UC09.** La regola "se PNO ha già un task su quel deal non ne apre un secondo" è stata riformulata come "deal esclusi dalla vista". È una traduzione mia della regola nel modello aggregato.
+5. **Verifica sui dati.** La colonna "Verifica" del PNO è ora "Verifica sui dati (upsell)". Per D5, D6 e P16 il valore è "Spunta", che nell'ottica della nuova regola è la sola verifica prevista. Da pulire.
 
 ## Da verificare (non è chiaro dalla call)
 
